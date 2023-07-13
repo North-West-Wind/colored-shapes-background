@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "build:dev": "tsc --watch --preserveWatchOutput",
-    "start:dev": "nodemon dist/index.js & webpack -w"
+    "start:dev": "nodemon dist/index.js & webpack -w",
+    "start": "npm run build && node dist/index.js"
   },
   "keywords": [],
   "author": "NorthWestWind",
