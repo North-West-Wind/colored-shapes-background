@@ -1,4 +1,4 @@
-import { flipColor, randomChance } from "../helpers/math";
+import { randomChance } from "../helpers/math";
 import { randomShape } from "../helpers/shape";
 import Background from "../types/background";
 import { Vec2 } from "../types/math";
@@ -14,7 +14,7 @@ export class RandomShapeBackground extends Background {
 				position = new Vec2(ctx.canvas.width, ctx.canvas.height).scale(Math.random(), Math.random());
 			} while (this.shapes.find(s => s.position.distanceToSqr(position) < Math.pow(s.shape.size * 2 * ctx.canvas.width * 0.05, 2)));
 			const shape = randomShape();
-			if (shape.color.isDark()) shape.color = flipColor(shape.color);
+			if (shape.color.isDark()) shape.color = shape.color.brighten(50);
 			this.shapes.push({ shape, life: 3000, position });
 		}
 

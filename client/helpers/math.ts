@@ -16,12 +16,3 @@ export function randomChance(chance: number) {
 export function randomColor() {
 	return tinycolor(randomBetween(0, 16777216, true).toString(16));
 }
-
-export function flipColor(color: tinycolor.Instance) {
-	const rgb = <any> color.toRgb();
-	for (const prop in rgb) {
-		if (prop == "a") continue;
-		rgb[prop] = 255 - rgb[prop];
-	}
-	return tinycolor(rgb);
-}
