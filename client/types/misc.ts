@@ -1,1 +1,1 @@
-export type DrawFunction = (ctx: CanvasRenderingContext2D, backgroundColor: string) => void;
+export type DrawFunction = (ctx: CanvasRenderingContext2D) => void;
