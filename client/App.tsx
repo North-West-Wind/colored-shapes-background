@@ -5,8 +5,8 @@ import { RandomShapeBackground } from "./backgrounds/random_shape";
 
 const App: React.FC = () => {
   const background = new RandomShapeBackground();
-  const draw: DrawFunction = (ctx, frameCount) => {
-    background.render(ctx);
+  const draw: DrawFunction = (ctx, backgroundColor) => {
+    background.render(ctx, backgroundColor);
   }
 
   return <div>

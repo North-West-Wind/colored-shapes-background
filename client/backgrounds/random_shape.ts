@@ -14,7 +14,7 @@ export class RandomShapeBackground extends Background {
 				position = new Vec2(ctx.canvas.width, ctx.canvas.height).scale(Math.random(), Math.random());
 			} while (this.shapes.find(s => s.position.distanceToSqr(position) < Math.pow(s.shape.size * 2 * ctx.canvas.width * 0.05, 2)));
 			const shape = randomShape();
-			if (shape.color.isDark()) shape.color = shape.color.brighten(50);
+			//if (shape.color.isDark()) shape.color = shape.color.brighten(50);
 			this.shapes.push({ shape, life: 3000, position });
 		}
 
@@ -25,8 +25,6 @@ export class RandomShapeBackground extends Background {
 	}
 
 	doRender(ctx: CanvasRenderingContext2D) {
-		ctx.fillStyle = "#282828";
-		ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 		this.shapes.forEach(s => {
 			var opacity: number;
 			if (s.life > 2000) opacity = (1000 - (s.life % 1000)) / 1000;

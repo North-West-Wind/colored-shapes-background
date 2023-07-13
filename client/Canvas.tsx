@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { DrawFunction } from "./types/misc";
+import { getInheritedBackgroundColor } from "./helpers/style";
 
 const Canvas: React.FC<{ draw: DrawFunction }> = props => {
   const { draw, ...rest } = props;
@@ -7,6 +8,7 @@ const Canvas: React.FC<{ draw: DrawFunction }> = props => {
   
   useEffect(() => {
     const canvas: HTMLCanvasElement = canvasRef.current!;
+    const bg = getInheritedBackgroundColor(canvas);
     const ctx = canvas.getContext('2d')!;
     let frameCount = 0;
     let animationFrameId: number;
@@ -21,7 +23,7 @@ const Canvas: React.FC<{ draw: DrawFunction }> = props => {
     
     const render = () => {
       frameCount++;
-      draw(ctx, frameCount);
+      draw(ctx, bg);
       animationFrameId = window.requestAnimationFrame(render);
     }
     render();
