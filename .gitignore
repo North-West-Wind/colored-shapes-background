@@ -128,3 +128,7 @@ dist
 
 # custom
 public/bundle.js
+
+# replit
+.replit
+replit.nix
