@@ -1,5 +1,6 @@
 import Circle from "../shapes/circle";
 import Empty from "../shapes/empty";
+import Polygon from "../shapes/polygon";
 import Rectangle from "../shapes/rectangle";
 import Trapezium from "../shapes/trapezium";
 import Triangle from "../shapes/triangle";
@@ -11,11 +12,12 @@ export function randomShape(colorRange: number[] = []) {
 	const rotation = Math.PI * 2 * Math.random();
 	const size = randomBetween(0.75, 2);
 	const height = 1;
-	switch (Math.floor(Math.random() * 4)) {
+	switch (Math.floor(Math.random() * 5)) {
 		case 0: return new Circle(color, rotation, size, height);
 		case 1: return new Trapezium(color, rotation, size, height, randomBetween(0.5, 1.25), randomBetween(0.75, 2));
 		case 2: return new Rectangle(color, rotation, size, height);
 		case 3: return new Triangle(color, rotation, size, height);
+		case 4: return new Polygon(color, rotation, size, randomBetween(5, 8, true));
 		default: return new Empty();
 	}
 }

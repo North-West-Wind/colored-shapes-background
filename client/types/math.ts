@@ -43,6 +43,10 @@ export class Vec2 {
 		return this.x * this.x + this.y * this.y;
 	}
 
+	rotate(radian: number) {
+		return new Vec2(this.x * Math.cos(radian) - this.y * Math.sin(radian), this.x * Math.sin(radian) + this.y * Math.cos(radian));
+	}
+
 	scale(x: number, y: number) {
 		return new Vec2(this.x * x, this.y * y);
 	}
