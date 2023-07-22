@@ -1,4 +1,6 @@
+import "dotenv/config";
 import express, { Request, Response, NextFunction } from "express";
+import { AddressInfo } from "net";
 import path from "path";
 
 const app = express();
@@ -11,10 +13,8 @@ app.get("/", (req: Request, res: Response, next: NextFunction): void => {
 	} catch (error) {
 		next(error);
 	}
-})
+});
 
-const PORT = 3000;
-
-app.listen(PORT, () => {
-	console.log(`App listening on port ${PORT}`)
+const listener = app.listen(process.env.PORT || 3000, () => {
+	console.log(`App listening on port ${(<AddressInfo>listener.address()).port}`);
 });
