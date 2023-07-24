@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.get(process.env.EXPRESS_ROUTE || "/", (req: Request, res: Response, next: NextFunction): void => {
 	try {
-    res.send("index.html");
+    res.sendFile("index.html", { root: path.join(__dirname, "../public") });
 	} catch (error) {
 		next(error);
 	}
